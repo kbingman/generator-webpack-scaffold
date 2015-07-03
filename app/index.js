@@ -65,10 +65,6 @@ module.exports = generators.Base.extend({
             'marx'
         ];
         this.bowerInstall(bowerDependencies, { 'save': true });
-        // this.bulkDirectory(
-        //     this.destinationPath('bower_components/marx/scss'),
-        //     this.destinationPath('src/css/marx')
-        // );
     },
     installBuildTools: function () {
         var devDependencies = [
@@ -77,6 +73,7 @@ module.exports = generators.Base.extend({
             'babel-loader',
             'css-loader',
             'style-loader',
+            'sass-loader',
             'node-sass',
             'serve',
             'uglifyjs',

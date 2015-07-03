@@ -18,9 +18,7 @@ Create a directory where you want to use your new project, then simply run
 
     yo webpack-scaffold
 
-The generator will install all the required node modules. In order to run your new project with `serve`, simply type
-
-    npm start
+The generator will install all the required node modules. In order to run your new project with `serve`, simply type `npm start` and go to http://localhost:3000.
 
 Available scripts:
 

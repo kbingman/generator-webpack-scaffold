@@ -5,15 +5,12 @@ module.exports = function(config) {
   config.set({
     basePath: '',
     frameworks: ['mocha', 'chai', 'sinon'],
-    plugins: [
-        require('karma-webpack')
-    ],
     // list of files / patterns to load in the browser
     files: [
         'test/**/*.spec.js'
     ],
     exclude: [],
-    // possible values: 'dots', 'progress', 'junit', 'growl', 'coverage'
+    // possible values: 'dots', 'progress', 'junit', 'growl', 'coverage', 'spec'
     reporters: ['spec'],
     port: 9876,
     colors: true,
@@ -36,19 +33,35 @@ module.exports = function(config) {
     // - IE (only Windows)
     browsers: ['Chrome'],
     preprocessors: {
-      'test/**/*.js': [ 'webpack' ]
+        'test/**/*.js': [ 'webpack' ]
     },
     webpack: {
-        loaders: [
-            { test: /\.css$/, loader: 'style!css' },
-            { test: /\.js$/, loader: 'babel-loader' }
-        ]
+        module: {
+            loaders: [
+                { test: /\.css$/, loader: 'style!css' },
+                { test: /\.js$/, loader: 'babel-loader' }
+            ]
+        },
+        resolve: {
+            modulesDirectories: [
+                'src',
+                'node_modules'
+            ]
+        }
     },
     webpackMiddleware: {
         // webpack-dev-middleware configuration
         // i. e.
         noInfo: true
     },
+    plugins: [
+        require('karma-webpack'),
+        require('karma-mocha'),
+        require('karma-chai'),
+        require('karma-sinon'),
+        require('karma-chrome-launcher'),
+        require('karma-spec-reporter')
+    ],
     captureTimeout: 60000,
     singleRun: false
   });

@@ -4,7 +4,10 @@
 module.exports = function(config) {
   config.set({
     basePath: '',
-    frameworks: ['mocha', 'browserify', 'chai', 'sinon'],
+    frameworks: ['mocha', 'chai', 'sinon'],
+    plugins: [
+        require('karma-webpack')
+    ],
     // list of files / patterns to load in the browser
     files: [
         'test/**/*.spec.js'
@@ -33,11 +36,18 @@ module.exports = function(config) {
     // - IE (only Windows)
     browsers: ['Chrome'],
     preprocessors: {
-      'test/**/*.js': [ 'browserify' ]
+      'test/**/*.js': [ 'webpack' ]
     },
-    browserify: {
-      debug: true,
-      transform: [ 'babelify' ]
+    webpack: {
+        loaders: [
+            { test: /\.css$/, loader: 'style!css' },
+            { test: /\.js$/, loader: 'babel-loader' }
+        ]
+    },
+    webpackMiddleware: {
+        // webpack-dev-middleware configuration
+        // i. e.
+        noInfo: true
     },
     captureTimeout: 60000,
     singleRun: false

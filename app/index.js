@@ -89,7 +89,9 @@ module.exports = generators.Base.extend({
             'karma-chrome-launcher',
             'karma-mocha',
             'karma-sinon',
-            'karma-spec-reporter'
+            'karma-spec-reporter',
+            'karma-webpack',
+            'karma-sourcemap-loader'
         ];
         this.npmInstall(devDependencies, { 'saveDev': true });
     },

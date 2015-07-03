@@ -10,5 +10,8 @@
     "yeoman-generator"
   ],
   "author": "",
-  "license": "MIT"
+  "license": "MIT",
+  "dependencies": {
+    "yeoman-generator": "^0.20.1"
+  }
 }

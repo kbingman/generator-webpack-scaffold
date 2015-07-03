@@ -1,2 +1,3 @@
-# js-scaffold-generator
-Basic scaffold generator for ES6, Browserify and Mocha tests
+# Webpack Scaffold
+
+A basic webpack setup with LibSASS and Mocha / Karma tests

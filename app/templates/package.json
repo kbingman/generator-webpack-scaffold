@@ -1,0 +1,18 @@
+{
+    "name": "<%= name %>",
+    "version": "",
+    "description": "",
+    "scripts": {
+        "build:js": "webpack --progress --colors",
+        "build:css": "node-sass --output-style compressed src/css -o public/css",
+        "build": "npm run build:js & npm run build:css",
+        "livereload": "livereload public",
+        "start": "npm run build & serve public & npm run watch & npm run livereload",
+        "test": "karma start",
+        "watch:js": "webpack --progress --colors --watch",
+        "watch:css": "node-sass -w src/css -o public/css",
+        "watch": "npm run watch:js & npm run watch:css"
+    },
+    "author": "",
+    "license": "MIT"
+}

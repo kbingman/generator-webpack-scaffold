@@ -9,7 +9,7 @@
         "livereload": "livereload public",
         "start": "npm run build & serve public & npm run watch & npm run livereload",
         "test": "karma start",
-        "watch:js": "webpack --progress --colors --watch",
+        "watch:js": "webpack --progress --colors --watch --devtool inline-source-map",
         "watch:css": "node-sass -w src/css -o public/css",
         "watch": "npm run watch:js & npm run watch:css"
     },
